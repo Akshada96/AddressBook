@@ -1,18 +1,20 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CreateContact {
     ContactPerson person1 = new ContactPerson(null, null, null, null, null, null, null, null);
+    Scanner sc = new Scanner(System.in);
+    ArrayList<ContactPerson> list = new ArrayList<>();
     public void createNew(){
         String firstName, lastName, address, city, state, zip, phoneNo, email;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name");
-        firstName = sc.nextLine();
+        firstName = sc.next();
         System.out.println("Enter last name");
-        lastName = sc.nextLine();
+        lastName = sc.next();
         System.out.println("Enter address");
-        address = sc.nextLine();
+        address = sc.next();
         System.out.println("Enter city");
         city = sc.next();
         System.out.println("Enter state");
@@ -24,6 +26,24 @@ public class CreateContact {
         System.out.println("Enter email");
         email = sc.next();
         person1 = new ContactPerson(firstName,lastName,address,city,state,zip,phoneNo,email);
+        list.add(person1);
+    }
+    public void editContact(){
+        System.out.println("Enter first name ");
+        String name = sc.next();
+        int isMatch = 0;
+        System.out.println(list.size());
+        for (int i = 1; i <= list.size(); i++) {
+            String fname = list.get(i).getFirstName();
+            if (fname.equals(name)){
+                isMatch = 1;
+                createNew();
+                display();
+            }
+        }
+        if (isMatch == 0) {
+            System.out.println("Entered name does not exist");
+        }
     }
     public void display() {
         System.out.print("Contact details are\nName : "+person1.getFirstName()+" "+person1.getLastName()+
