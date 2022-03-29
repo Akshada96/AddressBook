@@ -12,7 +12,8 @@ public class AddressBookMain {
         //contact1.display();
         boolean isContinue = true;
         while (isContinue) {
-            System.out.println("Enter\n1.To add new contact\n2.To edit existing contact\n3.End");
+            System.out.println("Enter\n1.To add new contact\n2.To edit existing contact" +
+                    "\n3.To delete existing Contact\n4.End");
             int i = sc.nextInt();
             switch (i) {
                 case 1 :
@@ -23,6 +24,9 @@ public class AddressBookMain {
                     contact1.editContact();
                     break;
                 case 3 :
+                    contact1.deleteContact();
+                    break;
+                case 4 :
                     System.out.println("Thank You !");
                     isContinue = false;
                     break;
