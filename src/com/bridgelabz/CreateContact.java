@@ -45,6 +45,22 @@ public class CreateContact {
             System.out.println("Entered name does not exist");
         }
     }
+    public void deleteContact(){
+        System.out.println("Enter first name to delete");
+        String name = sc.next();
+        int isMatch = 0;
+        for (int i=0; i<= list.size(); i++){
+            String fname = list.get(i).getFirstName();
+            if (fname.equals(name)){
+                isMatch = 1;
+                list.remove(i);
+                display();
+                break;
+            }
+        }
+        if (isMatch==0)
+            System.out.println("Entered name does not exist");
+    }
     public void display() {
         System.out.print("Contact details are\nName : "+person1.getFirstName()+" "+person1.getLastName()+
                 "\nAddress : "+person1.getAddress()+"\nCity : "+person1.getCity()+

@@ -4,6 +4,7 @@ public class ContactPerson {
     private String firstName, lastName, address, city, state, zip, phoneNo, email;
     public ContactPerson(String firstName, String lastName, String address, String city, String state, String zip,
                          String phoneNo, String email){
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -62,5 +63,19 @@ public class ContactPerson {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactPerson{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
