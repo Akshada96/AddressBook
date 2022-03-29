@@ -3,34 +3,31 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class AddressBookMain {
-    String firstName, lastName, address, city, state, zip, phoneNo, email;
-    public void createContact(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter first name");
-        firstName = sc.nextLine();
-        System.out.println("Enter last name");
-        lastName = sc.nextLine();
-        System.out.println("Enter address");
-        address = sc.nextLine();
-        System.out.println("Enter city");
-        city = sc.next();
-        System.out.println("Enter state");
-        state = sc.next();
-        System.out.println("Enter zip code");
-        zip = sc.next();
-        System.out.println("Enter phone number");
-        phoneNo = sc.next();
-        System.out.println("Enter email");
-        email = sc.next();
-    }
-    public void display() {
-        System.out.print("Name : "+firstName+" "+lastName+"\nAddress : "+address+"\nCity : "+city+
-                "\nState : "+state+"\nZip code : "+zip+"\nPhone no : "+phoneNo+"\nEmail : "+email);
-    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
-        AddressBookMain contact1 = new AddressBookMain();
-        contact1.createContact();
+        Scanner sc = new Scanner(System.in);
+        CreateContact contact1 = new CreateContact();
+        contact1.createNew();
         contact1.display();
+        boolean isContinue = true;
+        while (isContinue) {
+            System.out.println("Do you want to add new ? 1.Yes 2.No");
+            int i = sc.nextInt();
+            switch (i) {
+                case 1 :
+                    contact1.createNew();
+                    contact1.display();
+                    break;
+                case 2 :
+                    System.out.println("Thank You !");
+                    isContinue = false;
+                    break;
+                default:
+                    System.out.println("Enter eiter 1 or 2 only");
+                    break;
+            }
+        }
+
     }
 }
